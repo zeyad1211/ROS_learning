@@ -21,8 +21,8 @@ def callback_func(data):
 def rotate90_clockwise():
     global x_pos, theta_pos
     velocity_message = Twist()
-    velocity_message.angular.z = -2
-    loop_rate = rospy.Rate(10000)
+    velocity_message.angular.z = -1
+    loop_rate = rospy.Rate(1000000)
     command = rospy.Publisher('/turtle1/cmd_vel', Twist, queue_size=10)
     angle_desired = 90
     initialAngle = (theta_pos) * (180/math.pi)
@@ -98,8 +98,6 @@ if __name__ == '__main__':
         rospy.loginfo("node terminated.")
 
 
-# velocity_angle = 'geometry_msgs/Twist'
-# # command = rospy.Publisher(velocity_angle, Twist, queue_size=10)
-# position = 'turtlesim/Pose'
-# pos = rospy.Subscriber(position, Pose, callback_func)
-# rospy.spin()
+# difficulties faced.......
+# you need to add a parameter to the callback function and use it instead of the message itself
+# you need to add the first commnted line in order for the file to work
